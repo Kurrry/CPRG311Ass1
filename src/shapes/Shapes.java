@@ -23,6 +23,12 @@ public abstract class Shapes implements Comparable<Shapes> {
 
     @Override
     public int compareTo(Shapes s) {
-        return Double.compare(this.getHeight(), s.getHeight());
+        if (this.getHeight() > s.getHeight()) {
+            return 1;
+        } else if (this.getHeight() < s.getHeight()) {
+            return -1;
+        }
+
+        return 0;
     }
 }
