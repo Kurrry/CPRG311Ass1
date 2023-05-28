@@ -5,11 +5,11 @@ public abstract class Shapes implements Comparable<Shapes> {
 
     double height;
 
-    protected double calcVolume() {
+    public double calcVolume() {
         return 0;
     }
 
-    protected double calcBaseArea() {
+    public double calcBaseArea() {
         return 0;
     }
 

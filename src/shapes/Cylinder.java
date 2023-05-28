@@ -2,11 +2,11 @@ package shapes;
 
 public class Cylinder extends RoundShapes{
     public Cylinder(double height, double radius) {
-        setHeight(height);
-        setRadius(radius);
+        this.setHeight(height);
+        this.setRadius(radius);
     }
 
     public String toString() {
-        return "Cylinder" + getHeight() + " " + getRadius();
+        return "Cylinder" + this.getHeight() + " " + this.getRadius();
     }
 }

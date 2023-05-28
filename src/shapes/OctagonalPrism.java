@@ -2,11 +2,21 @@ package shapes;
 
 public class OctagonalPrism extends Prism{
     public OctagonalPrism(double height, double side) {
-        setHeight(height);
-        setSide(side);
+        this.setHeight(height);
+        this.setSide(side);
+    }
+
+    @Override
+    public double calcBaseArea() {
+        return (2 * (1 + Math.sqrt(2))) * super.calcVolume();
+    }
+
+    @Override
+    public double calcVolume() {
+        return this.calcBaseArea() * this.getHeight();
     }
 
     public String toString() {
-        return "OctagonalPrism" + getHeight() + " " + getSide();
+        return "OctagonalPrism" + this.getHeight() + " " + this.getSide();
     }
 }

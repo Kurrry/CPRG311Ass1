@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.lang.reflect.Constructor;
 import java.util.StringTokenizer;
 import shapes.*;
+import sorts.SortController;
 
 public class Controller {
     String fileName/* = "C:\ProgrammingStuff\polyfor1.txt"*/;
@@ -28,10 +29,14 @@ public class Controller {
 
 
         parseFile();
+        doSort();
 
         for(Shapes s : shapes) {
             System.out.println(s);
         }
+
+        //System.out.println(shapes[0]);
+        //System.out.println(shapes[shapes.length-1]);
     }
 
     private void parseFile() {
@@ -60,6 +65,14 @@ public class Controller {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    private void doSort() {
+        switch (typeSort) {
+            case 'h' -> SortController.sort(shapes, sortMethod);
+            case 'a' -> SortController.sort(shapes, sortMethod, new AreaCompare());
+            case 'v' -> SortController.sort(shapes, sortMethod, new VolumeCompare());
         }
     }
 }

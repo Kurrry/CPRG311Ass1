@@ -7,6 +7,11 @@ public abstract class Prism extends Shapes{
         return side;
     }
 
+    @Override
+    public double calcBaseArea() {
+        return Math.pow(this.getSide(), 2);
+    }
+
     public void setSide(double side) {
         this.side = side;
     }

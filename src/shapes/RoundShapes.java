@@ -7,6 +7,16 @@ public abstract class RoundShapes extends Shapes{
         return radius;
     }
 
+    @Override
+    public double calcBaseArea() {
+        return Math.PI * Math.pow(this.getRadius(), 2);
+    }
+
+    @Override
+    public double calcVolume() {
+        return this.calcBaseArea() * this.getHeight();
+    }
+
     public void setRadius(double radius) {
         this.radius = radius;
     }
