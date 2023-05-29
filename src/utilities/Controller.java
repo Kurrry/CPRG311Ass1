@@ -32,7 +32,7 @@ public class Controller {
         doSort();
 
         for(Shapes s : shapes) {
-            System.out.println(s.calcVolume());
+            System.out.println(s.getHeight());
         }
 
         //System.out.println(shapes[0]);
