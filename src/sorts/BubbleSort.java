@@ -7,7 +7,7 @@ public final class BubbleSort {
         for(int i = 0; i <= shapes.length - 1; i++) {
 
             for(int j = 1; j <= shapes.length - i - 1; j++) {
-                if(compareType.compare((T) shapes[j-1], (T) shapes[j]) > 0) {
+                if(compareType.compare((T) shapes[j-1], (T) shapes[j]) < 0) {
                     Comparable<T> temp = shapes[j-1];
                     shapes[j-1] = shapes[j];
                     shapes[j] = temp;
@@ -20,7 +20,7 @@ public final class BubbleSort {
         for(int i = 0; i <= shapes.length - 1; i++) {
 
             for(int j = 1; j <= shapes.length - i - 1; j++) {
-                if(shapes[j-1].compareTo((T) shapes[j]) > 0) {
+                if(shapes[j-1].compareTo((T) shapes[j]) < 0) {
                     Comparable<T> temp = shapes[j-1];
                     shapes[j-1] = shapes[j];
                     shapes[j] = temp;

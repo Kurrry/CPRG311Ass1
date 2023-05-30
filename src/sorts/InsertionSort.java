@@ -9,7 +9,7 @@ public final class InsertionSort {
             Comparable<T> current = shapes[i];
             int j = i;
 
-            while (j > 0 && compareType.compare((T) shapes[j-1], (T) current) > 0) {
+            while (j > 0 && compareType.compare((T) shapes[j-1], (T) current) < 0) {
                 shapes[j] = shapes[j-1];
                 j -= 1;
             }
@@ -23,7 +23,7 @@ public final class InsertionSort {
             Comparable<T> current = shapes[i];
             int j = i;
 
-            while (j > 0 && shapes[j-1].compareTo((T) current) > 0) {
+            while (j > 0 && shapes[j-1].compareTo((T) current) < 0) {
                 shapes[j] = shapes[j-1];
                 j -= 1;
             }

@@ -125,7 +125,7 @@ public class Controller {
             }
             case 'v' -> {
                 System.out.println("First Shape: " + shapes[1] + " " + shapes[1].calcVolume() +
-                        "Last Shape: " + shapes[shapes.length-1] + " " + shapes[shapes.length-1].calcVolume());
+                        "\nLast Shape: " + shapes[shapes.length-1] + " " + shapes[shapes.length-1].calcVolume());
 
                 for(int i = 999; i < shapes.length; i += 1000) {
                     System.out.println("The Shape at index " + i + ": " + shapes[i] + " Volume: " +
@@ -134,7 +134,7 @@ public class Controller {
             }
             case 'h' -> {
                 System.out.println("First Shape: " + shapes[1] + " " + shapes[1].getHeight() +
-                        "Last Shape: " + shapes[shapes.length-1] + " " + shapes[shapes.length-1].getHeight());
+                        "\nLast Shape: " + shapes[shapes.length-1] + " " + shapes[shapes.length-1].getHeight());
 
                 for(int i = 999; i < shapes.length; i += 1000) {
                     System.out.println("The Shape at index " + i + ": " + shapes[i] + " Height: " +

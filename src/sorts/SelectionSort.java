@@ -8,7 +8,7 @@ public final class SelectionSort {
             int indexOfMin = i;
 
             for(int j = i+1; j < shapes.length; j++) {
-                if(compareType.compare((T) shapes[j], (T) shapes[indexOfMin]) < 0) {
+                if(compareType.compare((T) shapes[j], (T) shapes[indexOfMin]) > 0) {
                     indexOfMin = j;
                 }
             }
@@ -26,7 +26,7 @@ public final class SelectionSort {
             int indexOfMin = i;
 
             for(int j = i+1; j < shapes.length; j++) {
-                if(shapes[j].compareTo((T) shapes[indexOfMin]) < 0) {
+                if(shapes[j].compareTo((T) shapes[indexOfMin]) > 0) {
                     indexOfMin = j;
                 }
             }
