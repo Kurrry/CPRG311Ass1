@@ -17,6 +17,6 @@ public class OctagonalPrism extends Prism{
     }
 
     public String toString() {
-        return "OctagonalPrism" + this.getHeight() + " " + this.getSide();
+        return "OctagonalPrism";
     }
 }

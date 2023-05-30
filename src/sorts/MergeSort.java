@@ -63,4 +63,64 @@ public final class MergeSort {
             startingPoint++;
         }
     }
+
+    public static <T> void doMergeSort(Comparable<T>[] shapes) {
+        int left = 0;
+        int right = shapes.length - 1;
+
+        splitNoCT(shapes, left, right);
+    }
+
+    private static <T> void splitNoCT(Comparable<T>[] shapes, int left, int right) {
+        if(left < right) {
+            int middle = left + (right - left) / 2;
+
+            splitNoCT(shapes, left, middle);
+            splitNoCT(shapes, middle+1, right);
+
+            mergeNoCT(shapes, left, middle, right);
+        }
+    }
+
+    private static <T> void mergeNoCT(Comparable<T>[] shapes, int left, int middle, int right) {
+        int leftSize = middle - left + 1;
+        int rightSize = right - middle;
+
+        Comparable<T>[] leftArray = new Comparable[leftSize];
+        Comparable<T>[] rightArray = new Comparable[rightSize];
+
+        for(int i = 0; i < leftSize; i++) {
+            leftArray[i] = shapes[left + i];
+        }
+        for(int i = 0; i < rightSize; i++) {
+            rightArray[i] = shapes[middle + 1 + i];
+        }
+
+        int leftPointer = 0;
+        int rightPointer = 0;
+        int startingPoint = left;
+
+        while (leftPointer < leftSize && rightPointer < rightSize) {
+            if(leftArray[leftPointer].compareTo((T) rightArray[rightPointer]) <= 0) {
+                shapes[startingPoint] = leftArray[leftPointer];
+                leftPointer++;
+            } else {
+                shapes[startingPoint] = rightArray[rightPointer];
+                rightPointer++;
+            }
+            startingPoint++;
+        }
+
+        while(leftPointer < leftSize) {
+            shapes[startingPoint] = leftArray[leftPointer];
+            leftPointer++;
+            startingPoint++;
+        }
+
+        while(rightPointer < rightSize) {
+            shapes[startingPoint] = rightArray[rightPointer];
+            rightPointer++;
+            startingPoint++;
+        }
+    }
 }

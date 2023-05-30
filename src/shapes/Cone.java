@@ -12,6 +12,6 @@ public class Cone extends RoundShapes{
     }
 
     public String toString() {
-        return "Cone" + this.getHeight() + " " + this.getRadius();
+        return "Cone";
     }
 }

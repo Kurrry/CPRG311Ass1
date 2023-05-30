@@ -8,7 +8,7 @@ public final class SortController {
             case 'b' -> BubbleSort.doBubbleSort(shapes);
             case 's' -> SelectionSort.doSelectionSort(shapes);
             case 'i' -> InsertionSort.doInsertionSort(shapes);
-            //case 'm' -> new MergeSort(shapes);
+            case 'm' -> MergeSort.doMergeSort(shapes);
             //case 'q' -> new QuickSort(shapes);
             //case 'z' -> new RadixSort(shapes);
         }

@@ -7,6 +7,6 @@ public class Cylinder extends RoundShapes{
     }
 
     public String toString() {
-        return "Cylinder" + this.getHeight() + " " + this.getRadius();
+        return "Cylinder";
     }
 }

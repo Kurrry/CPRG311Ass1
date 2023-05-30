@@ -12,6 +12,6 @@ public class Pyramid extends Prism {
     }
 
     public String toString() {
-        return "Pyramid" + this.getHeight() + " " + this.getSide();
+        return "Pyramid";
     }
 }

@@ -17,6 +17,6 @@ public class PentagonalPrism extends Prism{
     }
 
     public String toString() {
-        return "PentagonalPrism" + this.getHeight() + " " + this.getSide();
+        return "PentagonalPrism";
     }
 }

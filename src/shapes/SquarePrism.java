@@ -12,6 +12,6 @@ public class SquarePrism extends Prism{
     }
 
     public String toString() {
-        return "SquarePrism" + this.getHeight() + " " + this.getSide();
+        return "SquarePrism";
     }
 }

@@ -17,6 +17,6 @@ public class TriangularPrism extends Prism{
     }
 
     public String toString() {
-        return "TriangularPrism" + this.getHeight() + " " + this.getSide();
+        return "TriangularPrism";
     }
 }
