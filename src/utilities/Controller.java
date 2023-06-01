@@ -113,7 +113,7 @@ public class Controller {
             case 's': concatSort = "SelectionSort"; break;
             case 'i': concatSort = "InsertionSort"; break;
             case 'q': concatSort = "QuickSort"; break;
-            case 'z': concatSort = "RadixSort"; break;
+            case 'z': concatSort = "HeapSort"; break;
             case 'm': concatSort = "MergeSort"; break;
         }
         System.out.println(sortMethodRead + concatSort);
