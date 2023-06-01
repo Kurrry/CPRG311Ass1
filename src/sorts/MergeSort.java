@@ -98,29 +98,29 @@ public final class MergeSort {
 
         int leftPointer = 0;
         int rightPointer = 0;
-        int startingPoint = left;
+        int shapesPointer = left;
 
         while (leftPointer < leftSize && rightPointer < rightSize) {
             if(leftArray[leftPointer].compareTo((T) rightArray[rightPointer]) >= 0) {
-                shapes[startingPoint] = leftArray[leftPointer];
+                shapes[shapesPointer] = leftArray[leftPointer];
                 leftPointer++;
             } else {
-                shapes[startingPoint] = rightArray[rightPointer];
+                shapes[shapesPointer] = rightArray[rightPointer];
                 rightPointer++;
             }
-            startingPoint++;
+            shapesPointer++;
         }
 
         while(leftPointer < leftSize) {
-            shapes[startingPoint] = leftArray[leftPointer];
+            shapes[shapesPointer] = leftArray[leftPointer];
             leftPointer++;
-            startingPoint++;
+            shapesPointer++;
         }
 
         while(rightPointer < rightSize) {
-            shapes[startingPoint] = rightArray[rightPointer];
+            shapes[shapesPointer] = rightArray[rightPointer];
             rightPointer++;
-            startingPoint++;
+            shapesPointer++;
         }
     }
 }
