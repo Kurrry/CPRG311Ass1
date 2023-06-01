@@ -17,13 +17,14 @@ public class Controller {
     public Controller(String[] args) {
         for (String s : args) {
             switch (s.toLowerCase().charAt(1)) {
-                case 'f' -> {
+                case 'f':
                     String temp = s.substring(2);
                     temp = temp.replaceAll("\"", "");
                     fileName = temp;
-                }
-                case 't' -> typeSort = s.toLowerCase().charAt(2);
-                case 's' -> sortMethod = s.toLowerCase().charAt(2);
+                    break;
+
+                case 't': typeSort = s.toLowerCase().charAt(2); break;
+                case 's': sortMethod = s.toLowerCase().charAt(2); break;
             }
         }
 
@@ -48,6 +49,9 @@ public class Controller {
         long runTime = stop - start;
 
         printResults();
+        /*for(Shapes s : shapes) {
+            System.out.println(s + " " + s.calcVolume());
+        }*/
         System.out.println("Time to sort in ms: " + runTime);
 
         //System.out.println(shapes[0]);
@@ -86,9 +90,9 @@ public class Controller {
 
     private void doSort() {
         switch (typeSort) {
-            case 'h' -> SortController.sort(shapes, sortMethod);
-            case 'a' -> SortController.sort(shapes, sortMethod, new AreaCompare());
-            case 'v' -> SortController.sort(shapes, sortMethod, new VolumeCompare());
+            case 'h': SortController.sort(shapes, sortMethod); break;
+            case 'a': SortController.sort(shapes, sortMethod, new AreaCompare()); break;
+            case 'v': SortController.sort(shapes, sortMethod, new VolumeCompare()); break;
         }
     }
 
@@ -105,25 +109,25 @@ public class Controller {
         String sortMethodRead = "The sort method used for this sort is ";
         String concatSort = "";
         switch (sortMethod) {
-            case 'b' -> concatSort = "BubbleSort";
-            case 's' -> concatSort = "SelectionSort";
-            case 'i' -> concatSort = "InsertionSort";
-            case 'q' -> concatSort = "QuickSort";
-            case 'z' -> concatSort = "RadixSort";
-            case 'm' -> concatSort = "MergeSort";
+            case 'b': concatSort = "BubbleSort"; break;
+            case 's': concatSort = "SelectionSort"; break;
+            case 'i': concatSort = "InsertionSort"; break;
+            case 'q': concatSort = "QuickSort"; break;
+            case 'z': concatSort = "HeapSort"; break;
+            case 'm': concatSort = "MergeSort"; break;
         }
         System.out.println(sortMethodRead + concatSort);
 
         switch (typeSort) {
-            case 'a' -> {
+            case 'a':
                 System.out.println("First Shape: " + shapes[1] + " " + shapes[1].calcBaseArea() +
                         "\nLast Shape: " + shapes[shapes.length-1] + " " + shapes[shapes.length-1].calcBaseArea());
 
                 for(int i = 999; i < shapes.length; i += 1000) {
                     System.out.println("The Shape at index " + i + ": " + shapes[i] + " Area: " + shapes[i].calcBaseArea());
                 }
-            }
-            case 'v' -> {
+                break;
+            case 'v':
                 System.out.println("First Shape: " + shapes[1] + " " + shapes[1].calcVolume() +
                         "\nLast Shape: " + shapes[shapes.length-1] + " " + shapes[shapes.length-1].calcVolume());
 
@@ -131,8 +135,8 @@ public class Controller {
                     System.out.println("The Shape at index " + i + ": " + shapes[i] + " Volume: " +
                             shapes[i].calcVolume());
                 }
-            }
-            case 'h' -> {
+                break;
+            case 'h':
                 System.out.println("First Shape: " + shapes[1] + " " + shapes[1].getHeight() +
                         "\nLast Shape: " + shapes[shapes.length-1] + " " + shapes[shapes.length-1].getHeight());
 
@@ -140,7 +144,7 @@ public class Controller {
                     System.out.println("The Shape at index " + i + ": " + shapes[i] + " Height: " +
                             shapes[i].getHeight());
                 }
-            }
+                break;
         }
     }
 }
