@@ -21,7 +21,7 @@ public final class SortController {
             case 'i': InsertionSort.doInsertionSort(shapes, compareType); break;
             case 'm': MergeSort.doMergeSort(shapes, compareType); break;
             case 'q': QuickSort.doQuickSortCT(shapes, compareType); break;
-            case 'z': //HeapSort.doHeapSort(shapes, compareType); break;
+            case 'z': HeapSort.doHeapSort(shapes, compareType); break;
         }
     }
 }
