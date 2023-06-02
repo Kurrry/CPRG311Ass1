@@ -10,7 +10,7 @@ public final class SortController {
             case 'i': InsertionSort.doInsertionSort(shapes); break;
             case 'm': MergeSort.doMergeSort(shapes); break;
             case 'q': QuickSort.doQuickSortNoCT(shapes); break;
-            case 'z': //HeapSort.doHeapSort(shapes); break;
+            case 'z': HeapSort.doHeapSort(shapes); break;
         }
     }
 
