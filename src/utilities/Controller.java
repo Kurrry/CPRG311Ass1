@@ -128,8 +128,8 @@ public class Controller {
                 }
                 break;
             case 'v':
-                System.out.println("First Shape: " + shapes[1] + " Area: " + shapes[1].calcVolume() +
-                        "\nLast Shape: " + shapes[shapes.length-1] + " Area: " + shapes[shapes.length-1].calcVolume());
+                System.out.println("First Shape: " + shapes[1] + " Volume: " + shapes[1].calcVolume() +
+                        "\nLast Shape: " + shapes[shapes.length-1] + " Volume: " + shapes[shapes.length-1].calcVolume());
 
                 for(int i = 999; i < shapes.length; i += 1000) {
                     System.out.println("The Shape at index " + i + ": " + shapes[i] + " Volume: " +
@@ -137,8 +137,8 @@ public class Controller {
                 }
                 break;
             case 'h':
-                System.out.println("First Shape: " + shapes[1] + " Area: " + shapes[1].getHeight() +
-                        "\nLast Shape: " + shapes[shapes.length-1] + " Area: " + shapes[shapes.length-1].getHeight());
+                System.out.println("First Shape: " + shapes[1] + " Height: " + shapes[1].getHeight() +
+                        "\nLast Shape: " + shapes[shapes.length-1] + " Height: " + shapes[shapes.length-1].getHeight());
 
                 for(int i = 999; i < shapes.length; i += 1000) {
                     System.out.println("The Shape at index " + i + ": " + shapes[i] + " Height: " +
