@@ -24,6 +24,15 @@ public final class HeapSort {
 		for (int i = (arrLength / 2 - 1); i >= 0; i--) {
 			buildHeap(shapes, arrLength, i);
 		}
+		
+		for (int i = arrLength - 1; i > 0; i--) {
+			Comparable<T> tempEle = shapes[0];
+			shapes[0] = shapes[i];
+			shapes[i] = tempEle;
+			
+			buildHeap(shapes, i, 0);
+		}
+		
 	}
 
 	private static <T> void buildHeap(Comparable<T>[] shapes, int arrLength, int i) {
