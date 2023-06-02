@@ -43,9 +43,10 @@ public final class HeapSort {
 			Comparable<T> swapEle = shapes[i];
 			shapes[i] = shapes[largestNum];
 			shapes[largestNum] = swapEle;
+			buildHeap(shapes, arrLength, largestNum);
 		}
 		
-		buildHeap(shapes, arrLength, largestNum);
+		
 		
 	}
 
@@ -66,8 +67,9 @@ public final class HeapSort {
 			Comparable<T> swapEle = shapes[i];
 			shapes[i] = shapes[largestNum];
 			shapes[largestNum] = swapEle;
+			buildHeapComp(shapes, compareType, arrLength, largestNum);
 		}
 		
-		buildHeapComp(shapes, compareType, arrLength, largestNum);
+		
 	}
 }
