@@ -1,9 +1,19 @@
 package sorts;
 
-import javax.management.openmbean.CompositeType;
 import java.util.Comparator;
 
+/**
+ * Represents the merge sort algorithm.
+ * @author Group 9
+ */
 public final class MergeSort {
+    /**
+     * Sorts the shapes using merge sort. Shape comparisons are done using a comparator.
+     *
+     * @param shapes Array of shapes to sort.
+     * @param compareType Type of comparator.
+     * @param <T> Type of shape.
+     */
     public static <T> void doMergeSort(Comparable<T>[] shapes, Comparator<T> compareType) {
         int left = 0;
         int right = shapes.length - 1;
@@ -11,6 +21,15 @@ public final class MergeSort {
         splitCT(shapes, compareType, left, right);
     }
 
+    /**
+     * Main method that implements the merge sort algorithm.
+     *
+     * @param shapes Array of shapes.
+     * @param compareType Type of comparator.
+     * @param left Leftmost index of array.
+     * @param right Rightmost index of array.
+     * @param <T> Type of shape.
+     */
     private static <T> void splitCT(Comparable<T>[] shapes, Comparator<T> compareType, int left, int right) {
         if(left < right) {
             int middle = left + (right - left) / 2;
@@ -22,6 +41,16 @@ public final class MergeSort {
         }
     }
 
+    /**
+     * Merges two sub arrays of shapes[]. First array is [left ... middle]. Second is [middle + 1 ... right].
+     *
+     * @param shapes Array of shapes.
+     * @param compareType Type of comparator.
+     * @param left Leftmost index of the array.
+     * @param middle Middle index of the array.
+     * @param right Rightmost index of the array.
+     * @param <T> Type of shape.
+     */
     private static <T> void mergeCT(Comparable<T>[] shapes, Comparator<T> compareType, int left, int middle, int right) {
         int leftSize = middle - left + 1;
         int rightSize = right - middle;
@@ -64,6 +93,12 @@ public final class MergeSort {
         }
     }
 
+    /**
+     * Sorts the shapes using insertion sort. Shape comparisons are done using .compareTo().
+     *
+     * @param shapes Array of shapes to sort.
+     * @param <T> Type of shape.
+     */
     public static <T> void doMergeSort(Comparable<T>[] shapes) {
         int left = 0;
         int right = shapes.length - 1;
@@ -71,6 +106,14 @@ public final class MergeSort {
         splitNoCT(shapes, left, right);
     }
 
+    /**
+     * Main method that implements the merge sort algorithm.
+     *
+     * @param shapes Array of shapes.
+     * @param left Leftmost index of array.
+     * @param right Rightmost index of array.
+     * @param <T> Type of shape.
+     */
     private static <T> void splitNoCT(Comparable<T>[] shapes, int left, int right) {
         if(left < right) {
             int middle = left + (right - left) / 2;
@@ -82,6 +125,15 @@ public final class MergeSort {
         }
     }
 
+    /**
+     * Merges two sub arrays of shapes[]. First array is [left ... middle]. Second is [middle + 1 ... right].
+     *
+     * @param shapes Array of shapes.
+     * @param left Leftmost index of the array.
+     * @param middle Middle index of the array.
+     * @param right Rightmost index of the array.
+     * @param <T> Type of shape.
+     */
     private static <T> void mergeNoCT(Comparable<T>[] shapes, int left, int middle, int right) {
         int leftSize = middle - left + 1;
         int rightSize = right - middle;

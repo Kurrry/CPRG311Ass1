@@ -9,11 +9,22 @@ import java.util.StringTokenizer;
 import shapes.*;
 import sorts.SortController;
 
+/**
+ * Controls the main functions of the program.
+ * @author Group 9
+ */
 public class Controller {
-    String fileName/* = "C:\ProgrammingStuff\polyfor1.txt"*/;
+    String fileName;
     char typeSort;
     char sortMethod;
     Shapes[] shapes;
+
+    /**
+     * Takes the input from the command line to determine the sorting method, data file, and comparison type.
+     * Runs the file parsing method, sort method, and the result printing method.
+     * Prints the time to sort in milliseconds.
+     * @param args Command line input.
+     */
     public Controller(String[] args) {
         for (String s : args) {
             switch (s.toLowerCase().charAt(1)) {
@@ -49,15 +60,13 @@ public class Controller {
         long runTime = stop - start;
 
         printResults();
-        /*for(Shapes s : shapes) {
-            System.out.println(s + " " + s.calcVolume());
-        }*/
         System.out.println("Time to sort in ms: " + runTime);
-
-        //System.out.println(shapes[0]);
-        //System.out.println(shapes[shapes.length-1]);
     }
 
+    /**
+     * Parses the given shape data file. Populates the shapes array with shape objects based on the text data
+     * in the data file.
+     */
     private void parseFile() {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             int i = 0;
@@ -88,6 +97,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Runs the correct sorting algorithm with the correct comparison type based on the
+     * command line input.
+     */
     private void doSort() {
         switch (typeSort) {
             case 'h': SortController.sort(shapes, sortMethod); break;
@@ -96,6 +109,13 @@ public class Controller {
         }
     }
 
+    /**
+     * Ensures the command line input is valid. Compares the character input to an array of valid characters.
+     *
+     * @param input Command line input to validate.
+     * @param dict Array of valid characters.
+     * @return True if the input is valid. False if the input is invalid.
+     */
     private static boolean validateInput(char input, char[] dict) {
         for (char c : dict) {
             if(input == c) {
@@ -105,6 +125,9 @@ public class Controller {
         return false;
     }
 
+    /**
+     * Prints the sorting method used, the first shape, the last shape, and every thousandth shape inbetween.
+     */
     private void printResults() {
         String sortMethodRead = "The sort method used for this sort is ";
         String concatSort = "";
