@@ -64,11 +64,13 @@ public final class QuickSort {
             if(compareType.compare((T) shapes[movingPointer], (T) shapes[highIndex]) > 0) {
                 lowPointer++; // increment low pointer to avoid out of bounds
 
-                // swap the value at low pointer with the value at moving pointer
+                // swap the value at low pointer with the value at moving pointer if they are not at the same index
                 // this causes the higher value to move "forward" in the subarray
-                Comparable<T> temp = shapes[lowPointer];
-                shapes[lowPointer] = shapes[movingPointer];
-                shapes[movingPointer] = temp;
+                if (lowPointer != movingPointer) {
+                    Comparable<T> temp = shapes[lowPointer];
+                    shapes[lowPointer] = shapes[movingPointer];
+                    shapes[movingPointer] = temp;
+                }
             }
         }
 
@@ -125,9 +127,11 @@ public final class QuickSort {
         for(int movingPointer = lowIndex; movingPointer <= highIndex - 1; movingPointer++) {
             if(shapes[movingPointer].compareTo ((T) shapes[highIndex]) > 0) {
                 lowPointer++;
-                Comparable<T> temp = shapes[lowPointer];
-                shapes[lowPointer] = shapes[movingPointer];
-                shapes[movingPointer] = temp;
+                if (lowPointer != movingPointer) {
+                    Comparable<T> temp = shapes[lowPointer];
+                    shapes[lowPointer] = shapes[movingPointer];
+                    shapes[movingPointer] = temp;
+                }
             }
         }
         Comparable <T> temp = shapes[highIndex];
