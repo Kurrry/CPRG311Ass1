@@ -16,17 +16,20 @@ public final class SelectionSort {
      */
     public static <T> void doSelectionSort(Comparable<T>[] shapes, Comparator<T> compareType) {
         for(int i = 0; i < shapes.length - 1; i++) {
-            int indexOfMin = i;
+            // maximum element is assumed to be starting position
+            int indexOfMax = i;
 
             for(int j = i+1; j < shapes.length; j++) {
-                if(compareType.compare((T) shapes[j], (T) shapes[indexOfMin]) > 0) {
-                    indexOfMin = j;
+                // compare elements until a new max element is found
+                if(compareType.compare((T) shapes[j], (T) shapes[indexOfMax]) > 0) {
+                    indexOfMax = j; // save the index of the max element
                 }
             }
 
-            if (indexOfMin != i) {
-                Comparable<T> temp = shapes[indexOfMin];
-                shapes[indexOfMin] = shapes[i];
+            if (indexOfMax != i) {
+                // swap the max element with the element at index i, unless they are in the same position
+                Comparable<T> temp = shapes[indexOfMax];
+                shapes[indexOfMax] = shapes[i];
                 shapes[i] = temp;
             }
         }
@@ -40,17 +43,17 @@ public final class SelectionSort {
      */
     public static <T> void doSelectionSort(Comparable<T>[] shapes) {
         for(int i = 1; i < shapes.length - 1; i++) {
-            int indexOfMin = i;
+            int indexOfMax = i;
 
             for(int j = i+1; j < shapes.length; j++) {
-                if(shapes[j].compareTo((T) shapes[indexOfMin]) > 0) {
-                    indexOfMin = j;
+                if(shapes[j].compareTo((T) shapes[indexOfMax]) > 0) {
+                    indexOfMax = j;
                 }
             }
 
-            if (indexOfMin != i) {
-                Comparable<T> temp = shapes[indexOfMin];
-                shapes[indexOfMin] = shapes[i];
+            if (indexOfMax != i) {
+                Comparable<T> temp = shapes[indexOfMax];
+                shapes[indexOfMax] = shapes[i];
                 shapes[i] = temp;
             }
         }

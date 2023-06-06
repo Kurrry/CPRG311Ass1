@@ -38,15 +38,21 @@ public final class HeapSort {
 	 */
 	public static <T> void doHeapSort(Comparable<T>[] shapes) {
 		int arrLength = shapes.length;
+
+		// for loop to build initial heap
 		for (int i = (arrLength / 2 - 1); i >= 0; i--) {
 			buildHeap(shapes, arrLength, i);
 		}
-		
+
+		// get element from heap iteratively, "removing" the sorted max element at end of heap each time
 		for (int i = arrLength - 1; i > 0; i--) {
+
+			// move the element at index i to the start of shapes
 			Comparable<T> tempEle = shapes[0];
 			shapes[0] = shapes[i];
 			shapes[i] = tempEle;
-			
+
+			// build max heap
 			buildHeap(shapes, i, 0);
 		}
 		
@@ -61,10 +67,11 @@ public final class HeapSort {
 	 * @param <T> Type of shape.
 	 */
 	private static <T> void buildHeap(Comparable<T>[] shapes, int arrLength, int i) {
-		int largestNum = i;
+		int largestNum = i; // index of the largest element
 		int leftEle = 2 * i + 1;
 		int rightEle = 2 * i + 2;
-		
+
+		// if statements to find the largest element
 		if (leftEle < arrLength && shapes[leftEle].compareTo((T)shapes[largestNum]) > 0) {
 			largestNum = leftEle;
 		}
@@ -72,7 +79,9 @@ public final class HeapSort {
 		if (rightEle < arrLength && shapes[rightEle].compareTo((T)shapes[largestNum]) > 0) {
 			largestNum = rightEle;
 		}
-		
+
+		// if the largest element is not at index i, swap them.
+		// recursive call to buildHeap after swap until largest element is at index i
 		if (largestNum != i) {
 			Comparable<T> swapEle = shapes[i];
 			shapes[i] = shapes[largestNum];

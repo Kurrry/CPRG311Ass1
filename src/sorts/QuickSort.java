@@ -15,6 +15,7 @@ public final class QuickSort {
      * @param <T> Type of shape.
      */
     public static <T> void doQuickSortCT(Comparable<T>[] shapes, Comparator<T> compareType) {
+        // boilerplate method to pass initial values
         int highIndex = shapes.length - 1;
         int lowIndex = 0;
 
@@ -32,8 +33,10 @@ public final class QuickSort {
      */
     private static <T> void sortCT(Comparable<T>[] shapes, Comparator<T> compareType, int lowIndex, int highIndex) {
         if (lowIndex < highIndex) {
+            // partition shapes based on pivot. pivot will always start at the last element
             int partitionIndex = partitionCT(shapes, compareType, lowIndex, highIndex);
 
+            // recursive method to sort left and right subarrays
             sortCT(shapes, compareType, lowIndex, partitionIndex - 1);
             sortCT(shapes, compareType, partitionIndex + 1, highIndex);
         }
@@ -51,20 +54,29 @@ public final class QuickSort {
      * @param <T> Type of shape.
      */
     private static <T> int partitionCT(Comparable<T>[] shapes, Comparator<T> compareType, int lowIndex, int highIndex) {
+        // lowPointer starts one position behind the moving pointer
         int lowPointer = (lowIndex - 1);
 
+        // use for loop to move both pointers. moving pointer is the first element in the subarray
         for(int movingPointer = lowIndex; movingPointer <= highIndex - 1; movingPointer++) {
+
+            // check if the value at moving pointer is greater than the pivot
             if(compareType.compare((T) shapes[movingPointer], (T) shapes[highIndex]) > 0) {
-                lowPointer++;
+                lowPointer++; // increment low pointer to avoid out of bounds
+
+                // swap the value at low pointer with the value at moving pointer
+                // this causes the higher value to move "forward" in the subarray
                 Comparable<T> temp = shapes[lowPointer];
                 shapes[lowPointer] = shapes[movingPointer];
                 shapes[movingPointer] = temp;
             }
         }
+
+        // move the pivot element to its sorted place in the array
         Comparable <T> temp = shapes[highIndex];
         shapes[highIndex] = shapes[lowPointer+1];
         shapes[lowPointer+1] = temp;
-        return lowPointer + 1;
+        return lowPointer + 1; // return the partition index where the sorted element is
     }
 
     /**

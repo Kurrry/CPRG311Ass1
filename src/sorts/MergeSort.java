@@ -15,6 +15,8 @@ public final class MergeSort {
      * @param <T> Type of shape.
      */
     public static <T> void doMergeSort(Comparable<T>[] shapes, Comparator<T> compareType) {
+        // boilerplate method to pass initial values
+
         int left = 0;
         int right = shapes.length - 1;
 
@@ -32,11 +34,14 @@ public final class MergeSort {
      */
     private static <T> void splitCT(Comparable<T>[] shapes, Comparator<T> compareType, int left, int right) {
         if(left < right) {
+            // find middle/pivot point between left and right values
             int middle = left + (right - left) / 2;
 
+            // recursive method reduces/sorts left and right subarrays to smaller subarrays
             splitCT(shapes, compareType, left, middle);
             splitCT(shapes, compareType, middle+1, right);
 
+            // merge the subarrays into their final sorted form
             mergeCT(shapes, compareType, left, middle, right);
         }
     }
@@ -52,12 +57,15 @@ public final class MergeSort {
      * @param <T> Type of shape.
      */
     private static <T> void mergeCT(Comparable<T>[] shapes, Comparator<T> compareType, int left, int middle, int right) {
+        // find the size of the new arrays to be created
         int leftSize = middle - left + 1;
         int rightSize = right - middle;
 
+        // create arrays using the previous values
         Comparable<T>[] leftArray = new Comparable[leftSize];
         Comparable<T>[] rightArray = new Comparable[rightSize];
 
+        // copy values from shapes array into the left and right array
         for(int i = 0; i < leftSize; i++) {
             leftArray[i] = shapes[left + i];
         }
@@ -65,27 +73,34 @@ public final class MergeSort {
             rightArray[i] = shapes[middle + 1 + i];
         }
 
+        // create pointers
         int leftPointer = 0;
         int rightPointer = 0;
-        int startingPoint = left;
+        int startingPoint = left; // pointer for original shapes array
 
+        // iterate until one of the pointers reaches the end of its array
         while (leftPointer < leftSize && rightPointer < rightSize) {
+            // compare left array with right array
             if(compareType.compare((T) leftArray[leftPointer], (T) rightArray[rightPointer]) >= 0) {
+                // place the appropriate value into shapes and increment pointer
                 shapes[startingPoint] = leftArray[leftPointer];
                 leftPointer++;
             } else {
                 shapes[startingPoint] = rightArray[rightPointer];
                 rightPointer++;
             }
+            // increment shapes pointer to avoid copying over the value we just sorted
             startingPoint++;
         }
 
+        // empty any remaining values from left array into shapes as these are sorted
         while(leftPointer < leftSize) {
             shapes[startingPoint] = leftArray[leftPointer];
             leftPointer++;
             startingPoint++;
         }
 
+        // empty any remaining values from right array into shapes as these are sorted
         while(rightPointer < rightSize) {
             shapes[startingPoint] = rightArray[rightPointer];
             rightPointer++;

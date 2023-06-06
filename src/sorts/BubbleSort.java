@@ -15,6 +15,10 @@ public final class BubbleSort {
      * @param <T> Type of shape.
      */
     public static <T> void doBubbleSort(Comparable<T>[] shapes, Comparator<T> compareType) {
+
+        // start with the first element of the array
+        // compare the current element with the next element and swap them if the current is smaller
+        // continue until smallest element is at end of array and start again until array is sorted
         for(int i = 0; i <= shapes.length - 1; i++) {
 
             for(int j = 1; j <= shapes.length - i - 1; j++) {
